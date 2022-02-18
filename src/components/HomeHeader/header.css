@@ -1,0 +1,29 @@
+.navbar-light .navbar-brand {
+    width: 140px;
+}
+
+.navbar .navbar-light {
+    background: transparent !important;
+}
+
+.colorChange {
+    background:#3b319e !important;
+}
+
+.header-button {
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    padding: 11px 34px !important;
+    color: #fff;
+    border: 1px solid #665cb2;
+    -webkit-border-radius: 25px;
+    -moz-border-radius: 25px;
+    border-radius: 25px;
+    margin-left: 22px;
+}
+
+ .header-button {
+    border: 1px solid #f3bc16;
+    background: #f3bc16;
+}
