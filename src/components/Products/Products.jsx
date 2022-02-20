@@ -25,6 +25,26 @@ const Products = () => {
                     slidesPerView={3}
                     navigation
                     autoplay
+                    breakpoints={{
+                        320: {
+                            slidesPerView: 1,
+                            spaceBetweenSlides: 50
+                        },
+                        427: {
+                            slidesPerView: 1,
+                            spaceBetweenSlides: 10
+                        },
+                        // when window width is <= 999px
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetweenSlides: 10
+                        },
+                        999: {
+                            slidesPerView: 3,
+                            spaceBetweenSlides: 10
+                        },
+    
+                    }}
                     onSlideChange={() => console.log('slide change')}
                     onSwiper={(swiper) => console.log(swiper)}
                 >

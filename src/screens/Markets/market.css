@@ -1,0 +1,58 @@
+.content p {
+    color: #F3BC16;
+    font-size: 20px;
+    font-family: josefin sans,sans-serif;
+}
+
+.content h1 {
+    font-size: 37px;
+    font-weight: 700;
+    color: #fff;
+}
+
+
+table img {
+    height: 30px;
+    object-fit: cover;
+}
+
+table .img-box {
+    text-align: center;
+}
+
+table a {
+    text-decoration: none;
+}
+
+.featured-exchange {
+    position: relative;
+    background: url(../../images/pricing-bg.jpg) no-repeat;
+    background-size: cover;
+    padding: 150px 0;
+}
+
+.featured {
+    border-radius: 5px;
+    background: #31377d;
+    box-shadow: 0 11px 19.2px 0.8px rgb(66 58 232 / 10%);
+    padding: 35px 20px 0;
+    margin-bottom: 80px;
+    margin-right: 20px;
+    min-height: 300px;
+    padding: 10px;
+}
+
+.featured h3 {
+    color: #ccc;
+    margin-top: 20px;
+    margin-bottom: 45px;
+    font-family: josefin sans,sans-serif;
+    font-weight: 600;
+}
+
+.featured h2 {
+    font-size: 54px;
+    font-family: josefin sans,sans-serif;
+    font-weight: 700;
+    color: #fff;
+}

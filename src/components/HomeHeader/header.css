@@ -27,3 +27,32 @@
     border: 1px solid #f3bc16;
     background: #f3bc16;
 }
+
+.header-button.nav-link:hover {
+    background: #fff;
+    color: #ee4730 !important;
+}
+
+.navbar-toggler {
+    border: none !important;
+}
+
+.navbar-toggler i {
+    color: #fff;
+    font-size: 32px;
+}
+
+.navbar-toggler:focus {
+    box-shadow: none !important;
+}
+
+@media (max-width: 769px) {
+    .navbar-collapse {
+        background: #202342;
+        padding-bottom: 50px;
+   }
+   
+   .colorChange .navbar-collapse {
+       background:#3b319e !important;
+   }
+}

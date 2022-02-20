@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import './header.css'
 import dfcLogo from '../../images/dfcLogo.png'
+import whitepaper from '../../images/assets/whitePaperNew.pdf'
 import { Navbar, Nav, NavDropdown, Container } from 'react-bootstrap'
 
 const HomeHeader = () => {
@@ -17,10 +18,12 @@ const HomeHeader = () => {
     return (
         <Navbar expand="lg" fixed="top" className={colorChange ? 'colorChange' : ''}>
         <Container>
-          <Navbar.Brand href="#home">
+          <Navbar.Brand href="/">
               <img src={dfcLogo} alt=""  className='img-fluid'/>
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Toggle aria-controls="basic-navbar-nav">
+            <i class="fas fa-bars"></i>
+          </Navbar.Toggle>
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto">
               <NavDropdown title="Products" id="basic-nav-dropdown">
@@ -31,9 +34,9 @@ const HomeHeader = () => {
                 <NavDropdown.Item href="#action/3.3">Defipay</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.3">Logistic/Transportation</NavDropdown.Item>
               </NavDropdown>
-              <Nav.Link href="#home">Roadmap</Nav.Link>
-              <Nav.Link href="#home">Paper</Nav.Link>
-              <Nav.Link href="https://deficonnect.tech/markets">Markets</Nav.Link>
+              <Nav.Link href="/#roadmap">Roadmap</Nav.Link>
+              <Nav.Link href={whitepaper} target="_blank" rel='noreferrer'>Paper</Nav.Link>
+              <Nav.Link href="/markets">Markets</Nav.Link>
               <Nav.Link href="https://deficonnect.medium.com/">News</Nav.Link>
               <Nav.Link href="#home" className='header-button d-none d-sm-inline-block'>
                 Buy DFC
