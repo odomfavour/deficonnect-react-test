@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 
-import Home from "./screens/Index"
+import Home from "./screens/index"
 import Markets from "./screens/Markets/Markets";
 function App() {
   return (
