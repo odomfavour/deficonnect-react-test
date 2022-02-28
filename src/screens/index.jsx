@@ -39,8 +39,8 @@ import TradingModal from '../components/TradingModal/TradingModal'
 
 const Index = () => {
     const [modalShow, setModalShow] = useState(true);
-    return (
-        <section className='main-container'>
+  return (
+    <section className='main-container'>
             <HomeHeader />
             <section className='banner-bg'>
                 <div className="container">
@@ -669,7 +669,7 @@ const Index = () => {
             </section>
             <Footer />
         </section>
-    )
+  )
 }
 
 export default Index
