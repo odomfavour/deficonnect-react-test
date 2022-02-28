@@ -132,6 +132,54 @@ font-weight: 600;
     top: -3px;
 }
 
+.ball-2, .ball-3, .ball-4, .ball-5, .ball-6, .ball-7, .ball-8 {
+    position: absolute;
+}
+
+.ball-2 {
+    opacity: .6;
+    top: 40px;
+    right: 15%;
+    transform: translate(4px, 0px); transition: transform 0.1s ease 0s; will-change: transform;
+}
+
+.ball-3 {
+    opacity: .6;
+    top: 50%;
+    right: 15%;
+    transform: translate(479px, 0px); transition: transform 0.1s ease 0s; will-change: transform;
+}
+
+.ball-4 {
+    opacity: .6;
+    top: 110px;
+    left: 5%;
+    transform: translate(-6px, 0px); transition: transform 0.1s ease 0s; will-change: transform;
+}
+
+.ball-5 {
+    opacity: .6;
+    top: 120px;
+    left: 25%;
+    transform: translate(0px, -125px); transition: transform 0.1s ease 0s; will-change: transform;
+}
+
+.ball-6 {
+    opacity: .3;
+    top: 45%;
+    left: 5%;
+    transform: translate(-430px, 0px); transition: transform 0.1s ease 0s; will-change: transform;
+}
+
+.ball-7 {
+    opacity: .3;
+    top: 33%;
+    left: 15%;
+    transform: translate(0px, -287px); 
+    transition: transform 0.1s ease 0s; 
+    will-change: transform;
+}
+
 .button-3 {
     text-transform: uppercase;
     font-weight: 600;
@@ -146,6 +194,11 @@ font-weight: 600;
 
 .cl-white {
     color: #fff;
+}
+
+#tokenomics .row {
+    z-index: 70;
+    position: relative;
 }
 
 .contact-wrapper {

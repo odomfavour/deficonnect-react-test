@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './index.css'
 import './roadmap.css'
 import HomeHeader from '../components/HomeHeader/HomeHeader'
@@ -16,6 +16,13 @@ import coinsbit from '../images/coinsbit.png'
 import bitmart from '../images/bitmart.png'
 import latoken from '../images/latoken.png'
 import bitrue from '../images/bitrue.png'
+import ball1 from '../images/1.png'
+import ball2 from '../images/2.png'
+import ball3 from '../images/3.png'
+import ball4 from '../images/4.png'
+import ball5 from '../images/5.png'
+import ball6 from '../images/6.png'
+
 import coinmarketcap from '../images/coinmarketcap.jpeg'
 import deficonnectCoin from '../images/deficonnect-digitalcoin.png'
 import tp from '../images/tp.png'
@@ -26,10 +33,12 @@ import copyIcon from '../images/copy-icon.png'
 import Faqs from '../components/Faqs/Faqs.jsx'
 import Products from '../components/Products/Products'
 import Footer from '../components/Footer/Footer'
+import TradingModal from '../components/TradingModal/TradingModal'
 
 // import { BsTelegram, BsFacebook, BsReddit, BsTwitter, BsMedium, BsYoutube } from "react-icons/bs";
 
-const index = () => {
+const Index = () => {
+    const [modalShow, setModalShow] = useState(true);
     return (
         <section className='main-container'>
             <HomeHeader />
@@ -48,16 +57,16 @@ const index = () => {
                                 </div>
                             </div>
                             <div className="col-lg-5 col-md-12 col-12">
-                                <div class="embed-responsive embed-responsive-16by9">
-                                    <iframe width="516" height="315" src="https://www.youtube.com/embed/LzcNBu5jcJc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" style={{width: 100 + '%'}}></iframe>
+                                <div className="embed-responsive embed-responsive-16by9">
+                                    <iframe width="516" height="315" src="https://www.youtube.com/embed/LzcNBu5jcJc" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen="" style={{ width: 100 + '%' }}></iframe>
                                 </div>
-                                <div class="dfc-home-socials">
-                                    <a href="https://t.me/deficonnect" target="_blank" class="active" rel="noopener noreferrer"><i class="fab fa-telegram"></i></a>
-                                    <a href="https://www.facebook.com/deficonnect" target="_blank" class="active" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a>
-                                    <a href="https://www.reddit.com/user/deficonnect" target="_blank" class="active" rel="noopener noreferrer"><i class="fab fa-reddit"></i></a>
-                                    <a href="https://twitter.com/deficonnect" target="_blank" class="active" rel="noopener noreferrer"><i class="fab fa-twitter" ></i></a>
-                                    <a href="https://deficonnect.medium.com/" target="_blank" class="active" rel="noopener noreferrer"><i class="fab fa-medium"></i></a>
-                                    <a href="https://www.youtube.com/channel/UCYq2MxoWOXfkFHGuAr1H7dQ" target="_blank" class="active" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                                <div className="dfc-home-socials">
+                                    <a href="https://t.me/deficonnect" target="_blank" className="active" rel="noopener noreferrer"><i className="fab fa-telegram"></i></a>
+                                    <a href="https://www.facebook.com/deficonnect" target="_blank" className="active" rel="noopener noreferrer"><i className="fab fa-facebook"></i></a>
+                                    <a href="https://www.reddit.com/user/deficonnect" target="_blank" className="active" rel="noopener noreferrer"><i className="fab fa-reddit"></i></a>
+                                    <a href="https://twitter.com/deficonnect" target="_blank" className="active" rel="noopener noreferrer"><i className="fab fa-twitter" ></i></a>
+                                    <a href="https://deficonnect.medium.com/" target="_blank" className="active" rel="noopener noreferrer"><i className="fab fa-medium"></i></a>
+                                    <a href="https://www.youtube.com/channel/UCYq2MxoWOXfkFHGuAr1H7dQ" target="_blank" className="active" rel="noopener noreferrer"><i className="fab fa-youtube"></i></a>
                                 </div>
                             </div>
                         </div>
@@ -89,6 +98,7 @@ const index = () => {
                     </div>
                 </div>
             </section>
+            {modalShow ? <TradingModal show={modalShow} handleClose={() => setModalShow(false)} /> : ''}
             <section id="products">
                 <div className="section-header cl-white text-center mt-5">
                     <h2 className="title">Our Products</h2>
@@ -107,10 +117,10 @@ const index = () => {
                                 This transparency metric is a first of its kind that will ensure you make informed decisions as to what degree of your asset is being created in a more predictable way.</p>
                             <div className="mt-3 mb-5 contract-border">
                                 <label htmlFor="exampleFormControlInput1" className="form-label">Contract address</label>
-                                <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="0x996c1bf72Ec220289ae0edd3a8d77080642121a2" />
+                                <input type="email" className="form-control" id="exampleFormControlInput1" placeholder="name@example.com" value="0x996c1bf72Ec220289ae0edd3a8d77080642121a2" readOnly/>
                                 <img src={copyIcon} alt="copy" className='img-fluid copy-icon' />
                             </div>
-                            <a href="/markets" target="" class="button-3 btn-warning">BUY DFC</a>
+                            <a href="/markets" target="" className="button-3 btn-warning">BUY DFC</a>
                         </div>
                         <div className="col-md-6">
                             <img src={tokenomic} alt="" className='img-fluid' />
@@ -130,6 +140,24 @@ const index = () => {
                 </div>
                 <div className="bottom-shape d-none d-md-block">
                     <img src={bottomShape} alt="css" className='img-fluid' />
+                </div>
+                <div className="ball-2" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60" data-paroller-type="foreground" data-paroller-direction="horizontal" >
+                    <img src={ball1} alt="balls" />
+                </div>
+                <div className="ball-3" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60" data-paroller-type="foreground" data-paroller-direction="horizontal" >
+                    <img src={ball2} alt="balls" />
+                </div>
+                <div className="ball-4" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60" data-paroller-type="foreground" data-paroller-direction="horizontal" >
+                    <img src={ball3} alt="balls" />
+                </div>
+                <div className="ball-5" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60" data-paroller-type="foreground" data-paroller-direction="horizontal" >
+                    <img src={ball4} alt="balls" />
+                </div>
+                <div className="ball-6" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60" data-paroller-type="foreground" data-paroller-direction="horizontal" >
+                    <img src={ball5} alt="balls" />
+                </div>
+                <div className="ball-7" data-paroller-factor="-0.30" data-paroller-factor-lg="0.60" data-paroller-type="foreground" data-paroller-direction="horizontal" >
+                    <img src={ball6} alt="balls" />
                 </div>
                 <div className="my-5 about-content">
                     <div className="container mb-5">
@@ -178,8 +206,8 @@ const index = () => {
                                     <div className="col-md-6 mb-5">
                                         <h4 className="mb-2">Farm Size</h4>
                                         <p className="mb-3"><span data-target="index.farmSize">0.00</span> DFC</p>
-                                        <input type="hidden" data-target="index.refID" value="0xA175cbc003E53e2F31Cd32543Ce22c4A209DEa6F" />
-                                        <input type="number" data-target="index.inputAmount" placeholder="Min. 20,000,000 DFC" min="20,000,000" step="1000000" className="form-control mb-3 col-md-8 col-sm-12 offset-md-2 d-node" />
+                                        <input type="hidden" data-target="index.refID" value="0xA175cbc003E53e2F31Cd32543Ce22c4A209DEa6F" readOnly/>
+                                        <input type="number" data-target="index.inputAmount" placeholder="Min. 20,000,000 DFC" min="20,000,000" step="1000000" className="form-control mb-3 col-md-8 col-sm-12 offset-md-2 d-node"/>
                                         <table className="deposit-table1 table fg-white mt-3" style={{ display: 'none', color: 'white' }}>
                                             <thead>
                                                 <tr>
@@ -215,7 +243,7 @@ const index = () => {
                                 </div>
                             </div>
                         </div>
-                        <div style={{ marginTop: 30 + 'px' }} class="container referral">
+                        <div style={{ marginTop: 30 + 'px' }} className="container referral">
                             <div className="section-header cl-white">
                                 <h2 className="title">Referral Program</h2>
                                 <p>
@@ -229,7 +257,7 @@ const index = () => {
                                         <p className="noReferralLink" data-target="index.noReferralLink">You must stake some token before
                                             referring others</p>
                                         <div className="input-group mb-3 referralLinkDiv">
-                                            <input id="refLink" data-target="index.refLink" readOnly="" type="text" className="form-control referralLink" value="" />
+                                            <input id="refLink" data-target="index.refLink" readOnly="" type="text" className="form-control referralLink" />
                                             <div data-action="click->index#copyReferralLink" className="input-group-append btn-primary" style={{ cursor: 'copy' }}>
                                                 <span className="input-group-text" id="basic-addon2">Copy</span>
                                             </div>
@@ -430,7 +458,7 @@ const index = () => {
                                     2. Exchanges Listing<br /></div></div></li>
                             </ol>
                             <ul className="roadmap__navigation d-none"><li></li><li></li></ul></div>
-                            {/* <div className="roadmap__container">
+                        {/* <div className="roadmap__container">
                                 <ul className="roadmap">
                                     <li className="roadmap__item">
                                         <div className="roadmap__item-container">
@@ -639,9 +667,9 @@ const index = () => {
                     </div>
                 </div>
             </section>
-            <Footer/>
+            <Footer />
         </section>
     )
 }
 
-export default index
+export default Index
