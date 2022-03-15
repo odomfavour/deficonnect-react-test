@@ -1,0 +1,117 @@
+.fynpGN {
+    z-index: 5;
+    -webkit-box-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 512px;
+}
+
+.jZEXbQ {
+    padding: 0px 20px;
+    background: rgb(6, 19, 28);
+    border-radius: 12px;
+    border: 2px solid rgb(55, 62, 80);
+    box-shadow: rgb(21 25 35) 0px 2px 4px 2px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    width: 100%;
+    min-height: 0px;
+}
+
+.hVVFzA {
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(250, 250, 250);
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    height: 72px;
+    -webkit-box-pack: center;
+    justify-content: center;
+}
+
+.dwlJiY {
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(191, 191, 191);
+    display: flex;
+    font-size: 14px;
+    font-weight: 700;
+    height: 44px;
+    -webkit-box-pack: end;
+    justify-content: flex-end;
+}
+
+.kXVCLD {
+    -webkit-box-align: center;
+    align-items: center;
+    border-radius: 12px;
+    box-shadow: rgb(191 191 191) 0px 0px 8px inset;
+    display: flex;
+    height: 72px;
+    padding: 0px 16px;
+}
+
+.iYbEPM {
+    background: none;
+    border: 0px;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    flex: 1 1 0%;
+    height: 56px;
+    margin: 0px;
+    padding: 0px;
+    outline: none;
+}
+
+.bCQUzY {
+    color: rgb(140, 140, 140);
+    font-weight: 700;
+}
+
+.fQymcc {
+    width: 16px;
+}
+
+.etxXUI {
+    border-radius: 9px;
+    outline: none;
+    height: 40px;
+    font-size: 12px;
+    font-family: fontMedium;
+    -webkit-box-align: center;
+    align-items: center;
+    color: rgb(216, 174, 36);
+    cursor: pointer;
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    width: 100%;
+    transition: all 0.3s ease 0s;
+    border: 2px solid rgb(253, 203, 0);
+    background: rgb(6, 19, 28);
+}
+
+.RHdRK {
+    -webkit-box-align: center;
+    align-items: center;
+    background-color: rgba(250, 250, 250, 0);
+    display: flex;
+    margin: 0px;
+    padding: 24px;
+}
+
+.cKJzHK {
+    flex: 1 1 0%;
+}
+
+.dZjuQi {
+    height: 24px;
+    width: 24px;
+}
+
