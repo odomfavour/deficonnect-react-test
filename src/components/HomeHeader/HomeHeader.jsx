@@ -32,9 +32,13 @@ const HomeHeader = () => {
   window.addEventListener("scroll", changeNavbarColor);
 
   const login = () => {
-    alert(0)
-    activate(Injected);
-    localStorage.setItem('connected', 1)
+    try {
+      activate(Injected);
+      localStorage.setItem('connected', 1)
+    }catch(err){
+      alert(err)
+    }
+    
   };
 
   const logout = () => {
