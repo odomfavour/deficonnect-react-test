@@ -35,14 +35,12 @@ import copyIcon from "../images/copy-icon.png";
 import Faqs from "../components/Faqs/Faqs.jsx";
 import Products from "../components/Products/Products";
 import Footer from "../components/Footer/Footer";
-import TradingModal from "../components/TradingModal/TradingModal";
 import { dfcContractAddress } from "../web3/contracts";
 import dfcAbi from "../web3/abi/dfc";
 
 // import { BsTelegram, BsFacebook, BsReddit, BsTwitter, BsMedium, BsYoutube } from "react-icons/bs";
 
 const Index = () => {
-  const [modalShow, setModalShow] = useState(true);
   const { library, account } = useWeb3React();
   const [balance, setBalance] = useState();
   const [farmSize, setFarmSize] = useState();
@@ -213,14 +211,6 @@ const Index = () => {
           </div>
         </div>
       </section>
-      {modalShow ? (
-        <TradingModal
-          show={modalShow}
-          handleClose={() => setModalShow(false)}
-        />
-      ) : (
-        ""
-      )}
       <section id="products">
         <div className="section-header cl-white text-center mt-5">
           <h2 className="title">Our Products</h2>
