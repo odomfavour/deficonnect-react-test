@@ -76,14 +76,14 @@ const HomeHeader = () => {
             {active ? (
               <Nav.Link
                 onClick={logout}
-                className="header-button d-none d-sm-inline-block"
+                className="etxXUI"
               >
                 Disconnect
               </Nav.Link>
             ) : (
               <Nav.Link
                 onClick={login}
-                className="header-button d-none d-sm-inline-block"
+                className="etxXUI"
               >
                 Connect
               </Nav.Link>
