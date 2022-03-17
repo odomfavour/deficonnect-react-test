@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Routes } from "react-router";
 import Defifarm from "./screens/Defifarm/Defifarm";
-import FarmDetail from "./screens/FarmPage/FarmDetail";
+import FarmDetail from "./screens/FarmDetail/FarmDetail";
 
 import Home from "./screens/index"
 import Markets from "./screens/Markets/Markets";
