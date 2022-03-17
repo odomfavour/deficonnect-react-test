@@ -14,10 +14,10 @@ const FarmCard = ({ farmData }) => {
                   <span>APY</span>
                   <span>{farmData.apr}%</span>
                 </div>
-                {/* <div className="sc-fzonjX hIMiPJ">
-                  <span>TVL: &nbsp; </span>
-                  <span>0</span>
-                </div> */}
+                <div className="sc-fzonjX hIMiPJ">
+                  <span>Duration: &nbsp; </span>
+                  <span>{farmData.days} Days</span>
+                </div>
               </div>
               <div className="sc-fzozJi dZjuQi" size="24"></div>
             </div>
