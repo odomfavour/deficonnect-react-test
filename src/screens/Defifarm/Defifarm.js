@@ -9,7 +9,7 @@ const Defifarm = () => {
   return (
     <section className="main-container">
       <HomeHeader />
-      <section className="banner-bg" style={{paddingTop: 60}}>
+      <section className="banner-bg" style={{paddingTop: 160}}>
         <div className="container">
           <div className="row">
             <div className="col-md-10 offset-md-1 col-12">
