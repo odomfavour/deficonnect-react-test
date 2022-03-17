@@ -179,14 +179,13 @@
     display: flex;
     -webkit-box-pack: center;
     justify-content: center;
-    pointer-events: none;
     width: 100%;
     transition: all 0.3s ease 0s;
     border: 2px solid rgb(253, 203, 0);
     background: rgb(6, 19, 28);
 }
 
-.evjpbC:hover {
+.evjpbC:hover:enabled {
     background: rgb(253, 203, 0);
     color:#111;
     font-weight: bold;

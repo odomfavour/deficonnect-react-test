@@ -1,43 +1,100 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
+import {useLocation} from "react-router-dom"
+import { useWeb3React } from "@web3-react/core";
+import { BigNumber, Contract } from "ethers";
 import { Modal } from "react-bootstrap";
-import { BsXLg } from "react-icons/bs";
+import { getDetailLabel } from "../Defifarm/FarmData";
 import "./stakingModal.css";
+import dfcAbi from "../../web3/abi/dfc";
+import { defiFarmContractAddress } from "../../web3/contracts";
+import defiFarmAbi from "../../web3/abi/defiFarm";
 
-const StakingModal = ({ show, handleClose }) => {
-  // const [lgShow, setLgShow] = useState(false);
+const StakingModal = ({ show, handleClose, farmInfo }) => {
+  const [tokenBalance, setTokenBalance] = useState('0.0');
+  const {library, account} = useWeb3React();
+  const [amount, setAmount] = useState('')
+  const search = useLocation().search;
+
+  useEffect(() => {
+      const fn = async () => {
+        if(!library) return;
+        const contract = new Contract(
+            farmInfo.tokenAddress,
+            dfcAbi,
+            library.getSigner()
+          );
+          const balance = await contract.balanceOf(account);
+          let decimal = parseInt(await contract.decimals())
+          setTokenBalance((parseInt(balance) / 10**decimal).toFixed(2));
+      }
+      fn()
+  })
+
+  const setMaxAmount = () => {
+      if (!tokenBalance) return
+      setAmount(tokenBalance)
+  }
+
+  const stake = async () => {
+    if(!library) return;
+    let referrer = new URLSearchParams(search).get('ref');
+    if (!referrer || referrer === '') {
+        referrer = account
+    }
+
+    const contract = new Contract(
+        farmInfo.tokenAddress,
+        dfcAbi,
+        library.getSigner()
+      );
+      let decimal = parseInt(await contract.decimals())
+      
+    const defiFarmContract = new Contract(
+        defiFarmContractAddress,
+        defiFarmAbi,
+        library.getSigner()
+      );
+
+    const amountFixed = parseInt(amount*1e6)
+    const tokenAmount = BigNumber.from(amountFixed.toString()).mul(10**(decimal-6))
+    await defiFarmContract.stake(referrer, tokenAmount, farmInfo.pool)
+    // TODO: confirm transaction status before closing
+    handleClose()
+  }
+
   return (
-    <section>
-      <Modal
+    <Modal
         size="md"
         show={show}
         onHide={handleClose}
-        aria-labelledby="example-modal-sizes-title-lg"
+        aria-labelledby="staking-modal-sizes-title-lg"
         centered
       >
         <div className="fynpGN">
-            <div class="sc-Axmtr jZEXbQ">
-              <div class="sc-fznyAO hVVFzA">
-                Deposit BFI/BNB PANCAKE LP Tokens
+            <div className="sc-Axmtr jZEXbQ">
+              <div className="sc-fznyAO hVVFzA">
+                Deposit {getDetailLabel(farmInfo)}
               </div>
-              <div class="sc-fzoydu ctZjfV">
-                <div class="sc-fzpkqZ dwlJiY">
-                  0.000000000000000000 BFI/BNB PANCAKE LP Available
+              <div className="sc-fzoydu ctZjfV">
+                <div className="sc-fzpkqZ dwlJiY">
+                  {tokenBalance} {getDetailLabel(farmInfo)} Available
                 </div>
-                <div class="sc-fzqAbL kXVCLD">
+                <div className="sc-fzqAbL kXVCLD">
                   <input
                     placeholder="0"
-                    class="sc-fzqMAW iYbEPM"
-                    value=""
+                    className="sc-fzqMAW iYbEPM"
+                    value={amount} onChange={env => {setAmount(env.target.value)}}
                   ></input>
-                  <div class="sc-fzoYHE GXatJ">
-                    <span class="sc-fznAgC bCQUzY">BFI/BNB PANCAKE LP</span>
-                    <div class="sc-fzoJMP fQymcc"></div>
+                  <div className="sc-fzoYHE GXatJ">
+                    <span className="sc-fznAgC bCQUzY">{getDetailLabel(farmInfo)}</span>
+                    <div className="sc-fzoJMP fQymcc"></div>
                     <div>
                       <button
                         color="rgb(67,210,255)"
-                        font-size="12"
+                        fontSize="12"
                         size="36"
-                        class="sc-AxhCb etxXUI"
+                        className="sc-AxhCb etxXUI"
+                        onClick={setMaxAmount}
                       >
                         Max
                       </button>
@@ -45,24 +102,24 @@ const StakingModal = ({ show, handleClose }) => {
                   </div>
                 </div>
               </div>
-              <div class="sc-fzoLsD RHdRK">
-                <div class="sc-fzpans cKJzHK">
+              <div className="sc-fzoLsD RHdRK">
+                <div className="sc-fzpans cKJzHK">
                   <button onClick={handleClose}
                     color="#fafafa"
-                    font-size="12"
+                    fontSize="12"
                     size="56"
-                    class="sc-AxhCb etxXUI"
+                    className="sc-AxhCb etxXUI"
                   >
                     Cancel
                   </button>
                 </div>
-                <div class="sc-fzozJi dZjuQi" size="24"></div>
-                <div class="sc-fzpans cKJzHK">
-                  <button
+                <div className="sc-fzozJi dZjuQi" size="24"></div>
+                <div className="sc-fzpans cKJzHK">
+                  <button onClick={stake} disabled={parseFloat(amount) === 0 || !library}
                     color="rgb(67,210,255)"
-                    font-size="12"
+                    fontSize="12"
                     size="56"
-                    class="sc-AxhCb etxXUI"
+                    className="sc-AxhCb etxXUI"
                   >
                     Confirm
                   </button>
@@ -71,7 +128,6 @@ const StakingModal = ({ show, handleClose }) => {
             </div>
           </div>
       </Modal>
-    </section>
   );
 };
 

@@ -11,7 +11,7 @@ function App() {
       <Route path="/" element={<Home/>}/>
       <Route path="/markets" element={<Markets/>}/>
       <Route path="/defifarm" element={<Defifarm/>}/>
-      <Route path="/defifarm/:id" element={<FarmDetail/>}/>
+      <Route path="/defifarm/:ticker" element={<FarmDetail/>}/>
     </Routes>
   );
 }
