@@ -32,6 +32,7 @@ const HomeHeader = () => {
   window.addEventListener("scroll", changeNavbarColor);
 
   const login = () => {
+    alert(0)
     activate(Injected);
     localStorage.setItem('connected', 1)
   };
@@ -74,19 +75,14 @@ const HomeHeader = () => {
             <Nav.Link href="/markets">Markets</Nav.Link>
             <Nav.Link href="https://deficonnect.medium.com/">News</Nav.Link>
             {active ? (
-              <Nav.Link
+              <button
                 onClick={logout}
-                className="etxXUI"
-              >
-                Disconnect
-              </Nav.Link>
-            ) : (
-              <Nav.Link
+                className="etxXUI">Disconnect</button>
+              
+            ) : (<button
                 onClick={login}
-                className="etxXUI"
-              >
-                Connect
-              </Nav.Link>
+                className="etxXUI">Connect</button>
+              
             )}
           </Nav>
         </Navbar.Collapse>
