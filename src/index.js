@@ -8,6 +8,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import { Web3ReactProvider } from '@web3-react/core'
 import { Web3Provider } from "@ethersproject/providers";
+import MetamaskProvider from './web3/MetamaskProvider';
 function getLibrary(provider) {
   return new Web3Provider(provider);
 }
@@ -16,7 +17,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
     <Web3ReactProvider getLibrary={getLibrary}>
-      <App />
+      <MetamaskProvider><App /></MetamaskProvider>
     </Web3ReactProvider>
     </BrowserRouter>
   </React.StrictMode>,

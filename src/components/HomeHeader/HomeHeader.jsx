@@ -33,10 +33,12 @@ const HomeHeader = () => {
 
   const login = () => {
     activate(Injected);
+    localStorage.setItem('connected', 1)
   };
 
   const logout = () => {
     deactivate();
+    localStorage.setItem('connected', 0)
   };
 
   return (
