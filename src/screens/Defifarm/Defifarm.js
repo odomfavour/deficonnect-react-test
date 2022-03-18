@@ -4,6 +4,7 @@ import "./defifarm.css";
 import Footer from "../../components/Footer/Footer";
 import FarmCard from './FarmCard'
 import {data} from './FarmData'
+import { Tabs, Tab } from "react-bootstrap";
 
 const Defifarm = () => {
   return (
@@ -12,14 +13,20 @@ const Defifarm = () => {
       <section className="banner-bg" style={{paddingTop: 160}}>
         <div className="container">
           <div className="row">
-            <div className="col-md-10 offset-md-1 col-12">
+            <div className="col-md-6 offset-md-3 col-12">
               <div className="content">
-                <h1 className="dfc-welcome-title mt-md-5 mt-0"> DEFIFARM</h1>
+              <Tabs defaultActiveKey="yield" id="uncontrolled-tab-example" className="mb-3">
+                <Tab eventKey="yield" title="Yield Farming">
                 <div className="row">
-
-                  {data.map(d => <FarmCard farmData={d} key={d.pool}></FarmCard>)}
-
+                {data.filter(d=>d.type===1).map(d => <FarmCard farmData={d} key={d.pool}></FarmCard>)}
                 </div>
+                </Tab>
+                <Tab eventKey="staking" title="Staking">
+                <div className="row">
+                  {data.filter(d=>d.type===0).map(d => <FarmCard farmData={d} key={d.pool}></FarmCard>)}
+                </div>
+                </Tab>
+              </Tabs>
               </div>
             </div>
           </div>

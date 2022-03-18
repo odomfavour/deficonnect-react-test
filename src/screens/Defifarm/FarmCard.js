@@ -1,6 +1,6 @@
 const FarmCard = ({ farmData }) => {
   return (
-    <div className="col-md-4 col-12">
+    <div className="col-md-6 col-12">
       <div className="sc-fzqLLg doivlz">
         <div className="sc-fzoKki GoZkS">
           <div className="sc-fzoYkl gna-dsK">

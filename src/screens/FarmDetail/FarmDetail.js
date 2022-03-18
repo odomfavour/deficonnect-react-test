@@ -202,6 +202,7 @@ const FarmDetail = () => {
                     </div>
                   </div>
                   <div className="sc-fzozJi dZjuQi" size="24"></div>
+                  {farmInfo.type === 1 ? (
                   <div className="sc-fzpisO bcrkNl">
                     <button
                       color="rgb(67,210,255)"
@@ -210,7 +211,7 @@ const FarmDetail = () => {
                       className="sc-AxhCb etxXUI"
                     >
                       <a
-                        href="https://exchange.pancakeswap.finance/#/add/0x81859801b01764D4f0Fa5E64729f5a6C3b91435b/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+                        href="https://pancakeswap.finance/add/0x996c1bf72Ec220289ae0edd3a8d77080642121a2/BNB"
                         target="__blank"
                         className="sc-AxgMl eAkvDu"
                       >
@@ -225,7 +226,7 @@ const FarmDetail = () => {
                       className="sc-AxhCb etxXUI"
                     >
                       <a
-                        href="https://exchange.pancakeswap.finance/#/remove/0x81859801b01764D4f0Fa5E64729f5a6C3b91435b/0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c"
+                        href="https://pancakeswap.finance/remove/0x996c1bf72Ec220289ae0edd3a8d77080642121a2/BNB"
                         target="__blank"
                         className="sc-AxgMl eAkvDu"
                       >
@@ -233,6 +234,7 @@ const FarmDetail = () => {
                       </a>
                     </button>
                   </div>
+                  ) : ''}
                   <div className="sc-fzozJi dZSHle" size="48"></div>
                 </div>
               </div>
