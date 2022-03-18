@@ -1,2 +1,2 @@
 export const dfcContractAddress = '0x996c1bf72ec220289ae0edd3a8d77080642121a2'
-export const defiFarmContractAddress = '0x8421617abBc3e12bDdA3d058A06590e0aD949615'
+export const defiFarmContractAddress = '0x4Ab0e8292dC02208fC227884972627Aacadfa305'
