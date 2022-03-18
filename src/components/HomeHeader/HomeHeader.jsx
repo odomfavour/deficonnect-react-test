@@ -71,7 +71,7 @@ const HomeHeader = () => {
                 Logistic/Transportation
               </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link href="/defifarm">Defifarm</Nav.Link>
+            <Nav.Link href="/defifarm">DeFi Farm</Nav.Link>
             <Nav.Link href="/#roadmap">Roadmap</Nav.Link>
             <Nav.Link href={whitepaper} target="_blank" rel="noreferrer">
               Paper
