@@ -38,10 +38,16 @@ import Footer from "../components/Footer/Footer";
 import { dfcContractAddress } from "../web3/contracts";
 import dfcAbi from "../web3/abi/dfc";
 
+import { InjectedConnector } from "@web3-react/injected-connector";
+
+const Injected = new InjectedConnector({
+  supportedChainIds: [97, 56],
+});
+
 // import { BsTelegram, BsFacebook, BsReddit, BsTwitter, BsMedium, BsYoutube } from "react-icons/bs";
 
 const Index = () => {
-  const { library, account } = useWeb3React();
+  const { library, account, active, activate, deactivate } = useWeb3React();
   const [balance, setBalance] = useState();
   const [farmSize, setFarmSize] = useState();
   const [profitReceived, setProfitReceived] = useState();
@@ -69,6 +75,21 @@ const Index = () => {
     };
     fn()
   }, [library, account, setBalance, setFarmSize]);
+
+  const login = () => {
+    try {
+      activate(Injected);
+      localStorage.setItem('connected', 1)
+    }catch(err){
+      alert(err)
+    }
+    
+  };
+
+  const logout = () => {
+    deactivate();
+    localStorage.setItem('connected', 0)
+  };
 
   const harvest = async () => {
       if(!library) return;
@@ -383,6 +404,15 @@ const Index = () => {
             </div>
             <div id="1" className="section-header cl-white">
               <h2 className="title">Token Farming</h2>
+              
+              {active ? (
+              ''
+              
+            ) : (<button
+                onClick={login}
+                className="etxXUI" style={{width:200}}>Connect</button>
+              
+            )}
             </div>
             <div id="planting" className="contact-wrapper pb-5">
               <div className="col-md-12" id="countdown">
