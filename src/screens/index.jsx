@@ -54,6 +54,9 @@ const Index = () => {
   const [profitAvailable, setProfitAvailable] = useState();
 
   useEffect(() => {
+    if(!active) {
+      login()
+    }
     if (!library) return;
     const fn = async () => {
       const dfcContract = new Contract(
