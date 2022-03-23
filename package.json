@@ -20,11 +20,8 @@
     "react-scripts": "5.0.0",
     "swiper": "^8.0.6",
     "assert": "^2.0.0",
-
     "buffer": "^6.0.3",
-
     "stream-browserify": "^3.0.0",
-
     "util": "^0.12.4",
     "web-vitals": "^2.1.4"
   },
@@ -52,8 +49,8 @@
       "last 1 safari version"
     ]
   },
-  "engines" : { 
-    "npm" : "8.5.2",
-    "node" : "17.7.1"
+  "engines": {
+    "npm": "8.5.2",
+    "node": "17.7.1"
   }
 }

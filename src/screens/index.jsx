@@ -266,7 +266,7 @@ const Index = () => {
                 <input
                   type="email"
                   className="form-control"
-                  id="exampleFormControlInput1"
+                  id="wallet-email"
                   placeholder="name@example.com"
                   value="0x996c1bf72Ec220289ae0edd3a8d77080642121a2"
                   readOnly
@@ -282,7 +282,7 @@ const Index = () => {
               </a>
             </div>
             <div className="col-md-6">
-              <img src={tokenomic} alt="" className="img-fluid" />
+              <img src={tokenomic} alt="" className="img-fluid mt-5" />
               <ul>
                 <li>
                   <span>Token Name:</span> DefiConnect

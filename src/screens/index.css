@@ -710,9 +710,17 @@ left: 66.6667%
     left: 100%
 } */
 
+#wallet-email {
+    background: transparent !important;
+}
+
 @media (max-width: 769px) {
     .why-wrapper .section-header h2 {
         font-size: 30px;
+    }
+
+    .ball-7, .ball-3, .ball-4, .ball-5, .ball-6, .ball-1, .ball-2 {
+        display: none;
     }
 
     /* .roadmap.roadmap--orientation-auto .roadmap__events:after {
