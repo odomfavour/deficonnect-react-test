@@ -282,7 +282,7 @@ const Index = () => {
               </a>
             </div>
             <div className="col-md-6">
-              <img src={tokenomic} alt="" className="img-fluid mt-5" />
+              <img src={tokenomic} alt="" className="img-fluid" />
               <ul>
                 <li>
                   <span>Token Name:</span> DefiConnect
