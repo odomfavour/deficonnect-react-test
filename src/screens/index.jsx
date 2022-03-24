@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
+import { useWeb3React } from "@web3-react/core";
+import { Contract, ethers } from "ethers";
 import './index.css'
 import './roadmap.css'
 import HomeHeader from '../components/HomeHeader/HomeHeader'
@@ -35,10 +37,76 @@ import Products from '../components/Products/Products'
 import Footer from '../components/Footer/Footer'
 import TradingModal from '../components/TradingModal/TradingModal'
 
+import { dfcContractAddress } from "../web3/contracts";
+import dfcAbi from "../web3/abi/dfc";
+
+import { InjectedConnector } from "@web3-react/injected-connector";
+
+const Injected = new InjectedConnector({
+  supportedChainIds: [97, 56],
+});
 // import { BsTelegram, BsFacebook, BsReddit, BsTwitter, BsMedium, BsYoutube } from "react-icons/bs";
 
 const Index = () => {
   const [modalShow, setModalShow] = useState(true);
+  const { library, account, active, activate, deactivate } = useWeb3React();
+  const [balance, setBalance] = useState();
+  const [farmSize, setFarmSize] = useState();
+  const [profitReceived, setProfitReceived] = useState();
+  const [profitAvailable, setProfitAvailable] = useState();
+
+  useEffect(() => {
+    if(!active) {
+      login()
+    }
+    if (!library) return;
+    const fn = async () => {
+      const dfcContract = new Contract(
+        dfcContractAddress,
+        dfcAbi,
+        library.getSigner()
+      );
+      const dfcBalance = await dfcContract.balanceOf(account);
+      setBalance((parseInt(dfcBalance) / 1e8).toFixed(2));
+
+      const farmSizeRes = await dfcContract.farmSize()
+      setFarmSize((parseInt(farmSizeRes)/1e8).toFixed(2))
+
+      const rewardRecieved = await dfcContract.rewardReceived()
+      setProfitReceived((parseInt(rewardRecieved)/1e8).toFixed(2))
+
+      const rewardAvailable = await dfcContract.withdrawable()
+      setProfitAvailable((parseInt(rewardAvailable)/1e8).toFixed(2))
+    };
+    fn()
+  }, [library, account, setBalance, setFarmSize]);
+
+  const login = () => {
+    try {
+      activate(Injected);
+      localStorage.setItem('connected', 1)
+    }catch(err){
+      alert(err)
+    }
+    
+  };
+
+  const logout = () => {
+    deactivate();
+    localStorage.setItem('connected', 0)
+  };
+
+  const harvest = async () => {
+      if(!library) return;
+      const dfcContract = new Contract(
+        dfcContractAddress,
+        dfcAbi,
+        library.getSigner()
+      );
+
+      await dfcContract.harvest()
+      alert('submitted');
+  }
   return (
     <section className='main-container'>
       <HomeHeader />
@@ -194,7 +262,7 @@ const Index = () => {
                     </div>
                     <div className="col-md-4">
                       <h4 className="mb-2">Wallet Balance</h4>
-                      <p><span data-target="index.walletBalance">0.0DFC</span></p>
+                      <p><span data-target="index.walletBalance">{balance}DFC</span></p>
                     </div>
                   </div>
                 </div>
@@ -203,7 +271,7 @@ const Index = () => {
                   <div className="row">
                     <div className="col-md-6 mb-5">
                       <h4 className="mb-2">Farm Size</h4>
-                      <p className="mb-3"><span data-target="index.farmSize">0.00</span> DFC</p>
+                      <p className="mb-3"><span data-target="index.farmSize">{farmSize}</span> DFC</p>
                       <input type="hidden" data-target="index.refID" value="0xA175cbc003E53e2F31Cd32543Ce22c4A209DEa6F" readOnly />
                       <input type="number" data-target="index.inputAmount" placeholder="Min. 20,000,000 DFC" min="20,000,000" step="1000000" className="form-control mb-3 col-md-8 col-sm-12 offset-md-2 d-node" />
                       <table className="deposit-table1 table fg-white mt-3" style={{ display: 'none', color: 'white' }}>
@@ -229,9 +297,9 @@ const Index = () => {
                     </div>
                     <div className="col-md-6">
                       <h4 className="mb-2">Profit Received</h4>
-                      <p className="mb-3"><span data-target="index.totalProfit">0.0</span> DFC</p>
+                      <p className="mb-3"><span data-target="index.totalProfit">{profitReceived}</span> DFC</p>
                       <h4 className="mb-2">Available Profit</h4>
-                      <p className="mb-3"><span data-target="index.profit">0.0</span> DFC</p>
+                      <p className="mb-3"><span data-target="index.profit">{profitReceived}</span> DFC</p>
                       <div className="row">
                         <div className="col">
                           <button className="btn btn-primary col-md-8 col-sm-12 withdrawBtn" data-action="index#harvest">Harvest</button>
