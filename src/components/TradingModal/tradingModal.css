@@ -4,6 +4,7 @@
     background-size: cover;
     border: 1px solid #f3bc16;
     border-radius: 10px !important;
+    background-position: center;
 }
 
 .cancel-btn {
@@ -17,6 +18,9 @@
     z-index: 2;
     text-align: center;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .button-area a{

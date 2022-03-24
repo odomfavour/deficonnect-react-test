@@ -684,6 +684,9 @@ footer ul {
     text-align: center;
     border-radius: 10px;
     height: 110px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .s-blue {
